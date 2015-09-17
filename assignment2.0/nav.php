@@ -11,7 +11,7 @@
                 $queryNumber = (int)$_GET['queryNumber'];
         }
         
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 12; $i++) {
             if ($queryNumber == $i) {
                 print '<li class="activePage">Query ' . $i . '</li>';
             } else {

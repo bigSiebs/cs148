@@ -5,10 +5,10 @@ require_once('lib/custom-functions.php');
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>UVM Course Database | CS 148</title>
+        <title>SELECT SQL Queries | CS 148</title>
         <meta charset="utf-8">
         <meta name="author" content="Joe Siebert">
-        <meta name="description" content="This website displays and populates the tables for my UVM Course Database.">
+        <meta name="description" content="This site displays sets of data obtained using various SQL queries.">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,7 +16,7 @@ require_once('lib/custom-functions.php');
         <script src="//html5shim.googlecode.com/sin/trunk/html5.js"></script>
         <![endif]-->
 
-        <link rel="stylesheet" href="css/base.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="css/styles.css" type="text/css" media="screen">
 
         <?php
         $debug = false;
