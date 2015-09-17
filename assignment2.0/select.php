@@ -65,6 +65,11 @@ if ($queryNumber != "") {
             $val = array(0, 0, 0, 0);
             break;
         case 8:
+            $query = "SELECT DISTINCT fldBuilding, COUNT(fldSection)";
+            $query .= " FROM tblSections";
+            $query .= " GROUP BY fldBuilding";
+            $data = array("");
+            $val = array(0, 0, 0, 0);
             break;
         case 9:
             break;
