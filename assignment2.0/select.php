@@ -28,9 +28,9 @@ if ($queryNumber != "") {
             $query = "SELECT fldDepartment";
             $query .= " FROM tblCourses";
             $query .= " WHERE fldCourseName LIKE ?";
-            $data = array('%Introduction%');
+            $data = array('Introduction%');
             $val = array(1, 0, 0, 0);
-            $queryText = "SELECT fldDepartment FROM tblCourses WHERE fldCourseName LIKE '%Introduction%'";
+            $queryText = "SELECT fldDepartment FROM tblCourses WHERE fldCourseName LIKE 'Introduction%'";
             break;
         // Display all section data for classes that start at 1:10PM in Kalkin
         case 3:
@@ -123,7 +123,7 @@ if ($queryNumber != "") {
         // Display the total number of students that are over capacity in
         // overfilled sections
         case 12:
-            $query = "SELECT SUM(fldNumStudents - fldMaxStudents) ";
+            $query = "SELECT SUM(fldNumStudents - fldMaxStudents)";
             $query .= " FROM tblSections";
             $query .= " WHERE fldNumStudents > fldMaxStudents";
             $data = array("");
