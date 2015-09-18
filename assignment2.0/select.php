@@ -67,8 +67,8 @@ if ($queryNumber != "") {
             $query .= " FROM tblCourses";
             $query .= " WHERE fldCourseName LIKE ? AND fldDepartment <> ?";
             $data = array('%data%', 'CS');
-            $val = array(1, 1, 0, 2);
-            $queryText = "SELECT fldCourseName FROM tblCourses WHERE fldCourseName LIKE '%data%' AND fldDepartment <> 'CS'";
+            $val = array(1, 1, 0, 1);
+            $queryText = "SELECT fldCourseName FROM tblCourses WHERE fldCourseName LIKE '%data%' AND fldDepartment &lt;> 'CS'"; // escaped '<'
             break;
         // Display the number of distinct departments
         case 7:
