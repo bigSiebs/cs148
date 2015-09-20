@@ -2,12 +2,10 @@
     Created on : Sep 17, 2015, 2:15:36 PM
     Author     : Joe Siebert
 */
-
 /* -- General -- */
 
 table {
     margin: 0 auto;
-    
 }
 
 table, th, td {
@@ -31,17 +29,14 @@ header {
 }
 
 /* -- Nav -- */
-nav {
-    text-align: center;
-}
-
 nav ol {
     list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 nav ol li {
-    display: inline;
-    padding: 0.4em;
+    padding: 0.2em;
 }
 
 /* -- Footer -- */

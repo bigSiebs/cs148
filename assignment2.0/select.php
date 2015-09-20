@@ -2,6 +2,12 @@
 
 include "top.php";
 
+$queryNumber = "";
+
+if (isset($_GET['queryNumber'])) {
+    $queryNumber = (int) $_GET['queryNumber'];
+}
+
 print '<article>';
 
 if ($queryNumber != "") {
