@@ -18,6 +18,18 @@
         <h3>Assignment 2.0</h3>
         <ul>
             <li><a href="assignment2.0/select.php">select.php</a></li>
+            <li><a href="assignment2.0/select.php?queryNumber=1">q01</a></li>
+            <li><a href="assignment2.0/select.php?queryNumber=2">q02</a></li>
+            <li><a href="assignment2.0/select.php?queryNumber=3">q03</a></li>
+            <li><a href="assignment2.0/select.php?queryNumber=4">q04</a></li>
+            <li><a href="assignment2.0/select.php?queryNumber=5">q05</a></li>
+            <li><a href="assignment2.0/select.php?queryNumber=6">q06</a></li>
+            <li><a href="assignment2.0/select.php?queryNumber=7">q07</a></li>
+            <li><a href="assignment2.0/select.php?queryNumber=8">q08</a></li>
+            <li><a href="assignment2.0/select.php?queryNumber=9">q09</a></li>
+            <li><a href="assignment2.0/select.php?queryNumber=10">q10</a></li>
+            <li><a href="assignment2.0/select.php?queryNumber=11">q11</a></li>
+            <li><a href="assignment2.0/select.php?queryNumber=12">q12</a></li>
             <li><a href="assignment2.0/css/styles.css">Stylesheet</a></li>
         </ul>
         <h3>Assignment 1.0</h3>

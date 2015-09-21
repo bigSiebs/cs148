@@ -73,7 +73,7 @@ if ($queryNumber != "") {
             $query .= " FROM tblCourses";
             $query .= " WHERE fldCourseName LIKE ? AND fldDepartment <> ?";
             $data = array('%data%', 'CS');
-            $val = array(1, 1, 0, 1);
+            $val = array(1, 1, 0, 2);
             $queryText = "SELECT fldCourseName FROM tblCourses WHERE fldCourseName LIKE '%data%' AND fldDepartment &lt;> 'CS'"; // escaped '<'
             break;
         // Display the number of distinct departments
@@ -129,7 +129,7 @@ if ($queryNumber != "") {
         // Display the total number of students that are over capacity in
         // overfilled sections
         case 12:
-            $query = "SELECT SUM(fldNumStudents - fldMaxStudents)";
+            $query = "SELECT fnkCourseId, fldCRN, fldMaxStudents, fldNumStudents, fldNumStudents - fldMaxStudents";
             $query .= " FROM tblSections";
             $query .= " WHERE fldNumStudents > fldMaxStudents";
             $data = array("");
