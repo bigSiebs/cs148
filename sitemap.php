@@ -18,6 +18,7 @@
         <h3>Assignment 2.0</h3>
         <ul>
             <li><a href="assignment2.0/select.php">select.php</a></li>
+            <li><a href="assignment2.0/css/styles.css">Stylesheet</a></li>
         </ul>
         <h3>Assignment 1.0</h3>
         <ul>
