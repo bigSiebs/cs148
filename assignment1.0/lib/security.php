@@ -22,6 +22,9 @@ function securityCheck($path_parts, $yourURL, $form = false) {
     $whiteListPages[] = "index.php";
     $whiteListPages[] = "populate-table.php";
     $whiteListPages[] = "populate-enrolled.php";
+    
+    // Assignment 3.0
+    $whiteListPages[] = "join.php";
 
     //add all the folders to this array
     $whiteListFolders = array();
@@ -29,6 +32,9 @@ function securityCheck($path_parts, $yourURL, $form = false) {
     
     $whiteListFolders[] = "/cs148/assignment1.0";
     $whiteListFolders[] = "/cs148develop/assignment1.0";
+    
+    $whiteListFolders[] = "/cs148/assignment3.0";
+    $whiteListFolders[] = "/cs148develop/assignment3.0";
 
     // Check for valid page name
     if (!in_array($path_parts['basename'], $whiteListPages)) {
