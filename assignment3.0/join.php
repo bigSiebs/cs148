@@ -13,13 +13,36 @@ if ($queryNumber != "") {
     
     switch ($queryNumber) {
         case 1:
-            $query = "SELECT DISTINCT fldCourseName FROM tblCourses, tblEnrolls WHERE fldGrade = ? AND tblCourses.pmkCourseId = tblEnrolls.fnkCourseId";
+            $query = "SELECT DISTINCT fldCourseName";
+            $query .= " FROM tblCourses, tblEnrolls";
+            $query .= " WHERE fldGrade = ?";
+            $query .= " AND tblCourses.pmkCourseId = tblEnrolls.fnkCourseId";
+            $query .= " ORDER by fldCourseName";
             $data = array(100);
-            $val = array(1, 1, 0, 0);
-            $queryText = "SELECT DISTINCT fldCourseName FROM tblCourses, tblEnrolls WHERE fldGrade = 100 AND tblCourses.pmkCourseId = tblEnrolls.fnkCourseId";
+            $val = array(1, 2, 0, 0);
+            $queryText = "SELECT DISTINCT fldCourseName FROM tblCourses, tblEnrolls WHERE fldGrade = 100 AND tblCourses.pmkCourseId = tblEnrolls.fnkCourseId ORDER BY fldCourseName";
             break;
+        case 2:
+            $query = "SELECT DISTINCT fldDays, fldStart, fldStop";
+            $query .= " FROM tblSections, tblTeachers";
+            $query .= " WHERE fldFirstName = ? AND fldLastName = ?";
+            $query .= " AND tblTeachers.pmkNetId = tblSections.fnkTeacherNetId";
+            $query .= " ORDER BY fldStart";
+            $data = array('Robert Raymond', 'Snapp');
+            $val = array(1, 3, 0, 0);
+            $queryText = "SELECT DISTINCT fldDays, fldStart, fldStop FROM tblSections, tblTeachers WHERE fldFirstName = 'Robert Raymond' AND fldLastName = 'Snapp' AND tblTeachers.pmkNetId = tblSections.fnkTeacherNetId ORDER BY fldStart";
+            break;
+        case 3:
+            $query = "SELECT DISTINCT fldCourseName, fldDays, fldStart, fldStop";
+            $query .= " FROM tblCourses, tblSections, tblTeachers";
+            $query .= " WHERE fldFirstName = ? AND fldLastName = ?";
+            $query .= " AND tblTeachers.pmkNetId = tblSections.fnkTeacherNetId";
+            $query .= " AND tblCourses.pmkCourseId = tblSections.fnkCourseId";
+            $query .= " ORDER BY fldStart";
+            $data = array('Jackie Lynn', 'Horton');
+            $val = array(1, 4, 0, 0);
+            $queryText = "SELECT DISTINCT fldCourseName, fldDays, fldStart, fldStop FROM tblCourses, tblSections, tblTeachers WHERE fldFirstName = 'Jackie Lynn' AND fldLastName = 'Horton' AND tblTeachers.pmkNetId = tblSections.fnkTeacherNetId AND tblCourses.pmkCourseId = tblSections.fnkCourseId ORDER BY fldStart";
         default:
-            $query = "";
     }
     
     if ($query != "") {
