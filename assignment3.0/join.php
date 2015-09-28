@@ -42,6 +42,18 @@ if ($queryNumber != "") {
             $data = array('Jackie Lynn', 'Horton');
             $val = array(1, 4, 0, 0);
             $queryText = "SELECT DISTINCT fldCourseName, fldDays, fldStart, fldStop FROM tblCourses, tblSections, tblTeachers WHERE fldFirstName = 'Jackie Lynn' AND fldLastName = 'Horton' AND tblTeachers.pmkNetId = tblSections.fnkTeacherNetId AND tblCourses.pmkCourseId = tblSections.fnkCourseId ORDER BY fldStart";
+            break;
+        case 4:
+            $query = "SELECT fnkSectionId, fldFirstName, fldLastName";
+            $query .= " FROM tblStudents, tblEnrolls, tblCourses";
+            $query .= " WHERE fldDepartment = ? AND fldCourseNumber = ?";
+            $query .= " AND tblCourses.pmkCourseId = tblEnrolls.fnkCourseId";
+            $query .= " AND tblEnrolls.fnkStudentId = tblStudents.pmkStudentId";
+            $query .= " ORDER BY fnkSectionId, fldLastName, fldFirstName";
+            $data = array('CS', 148);
+            $val = array(1, 4, 0, 0);
+            $queryText = "SELECT fnkSectionId, fldFirstName, fldLastName FROM tblStudents, tblEnrolls, tblCourses WHERE fldDepartment = 'CS' AND fldCourseNumber = 148 AND tblCourses.pmkCourseId = tblEnrolls.fnkCourseId AND tblEnrolls.fnkStudentId = tblStudents.pmkStudentId ORDER BY fnkSectionId, fldLastName, fldFirstName";
+            break;
         default:
     }
     
