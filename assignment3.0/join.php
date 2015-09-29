@@ -54,6 +54,14 @@ if ($queryNumber != "") {
             $val = array(1, 2, 0, 0);
             $queryText = "SELECT fnkSectionId, fldFirstName, fldLastName FROM tblEnrolls JOIN tblStudents ON fnkStudentId = pmkStudentId JOIN tblCourses ON pmkCourseId = fnkCourseId WHERE fldDepartment = 'CS' AND fldCourseNumber = 148 ORDER BY fnkSectionId, fldLastName, fldFirstName";
             break;
+        case 5:
+            $query = "SELECT DISTINCT fldFirstName, fldLastName, SUM(fldNumStudents) AS total";
+            $query .= " FROM tblTeachers";
+            $query .= " JOIN tblSections ON fnkTeacherNetId = pmkNetId";
+            $query .= " GROUP BY fldFirstName, fldLastName";
+            $query .= " ORDER BY total DESC";
+            $data = array("");
+            $val = array(0, 1, 0, 0,);
         default:
     }
     
