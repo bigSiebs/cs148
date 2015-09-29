@@ -14,45 +14,45 @@ if ($queryNumber != "") {
     switch ($queryNumber) {
         case 1:
             $query = "SELECT DISTINCT fldCourseName";
-            $query .= " FROM tblCourses, tblEnrolls";
+            $query .= " FROM tblCourses";
+            $query .= " JOIN tblEnrolls ON pmkCourseId = fnkCourseId";
             $query .= " WHERE fldGrade = ?";
-            $query .= " AND tblCourses.pmkCourseId = tblEnrolls.fnkCourseId";
-            $query .= " ORDER by fldCourseName";
+            $query .= " ORDER BY fldCourseName";
             $data = array(100);
-            $val = array(1, 2, 0, 0);
-            $queryText = "SELECT DISTINCT fldCourseName FROM tblCourses, tblEnrolls WHERE fldGrade = 100 AND tblCourses.pmkCourseId = tblEnrolls.fnkCourseId ORDER BY fldCourseName";
+            $val = array(1, 1, 0, 0);
+            $queryText = "SELECT DISTINCT fldCourseName FROM tblCourses JOIN tblEnrolls ON pmkCourseId = fnkCourseId WHERE fldGrade = 100 ORDER BY fldCourseName";
             break;
         case 2:
             $query = "SELECT DISTINCT fldDays, fldStart, fldStop";
-            $query .= " FROM tblSections, tblTeachers";
+            $query .= " FROM tblSections";
+            $query .= " JOIN tblTeachers ON pmkNetId = fnkTeacherNetId";
             $query .= " WHERE fldFirstName = ? AND fldLastName = ?";
-            $query .= " AND tblTeachers.pmkNetId = tblSections.fnkTeacherNetId";
             $query .= " ORDER BY fldStart";
             $data = array('Robert Raymond', 'Snapp');
-            $val = array(1, 3, 0, 0);
-            $queryText = "SELECT DISTINCT fldDays, fldStart, fldStop FROM tblSections, tblTeachers WHERE fldFirstName = 'Robert Raymond' AND fldLastName = 'Snapp' AND tblTeachers.pmkNetId = tblSections.fnkTeacherNetId ORDER BY fldStart";
+            $val = array(1, 2, 0, 0);
+            $queryText = "SELECT DISTINCT fldDays, fldStart, fldStop FROM tblSections JOIN tblTeachers ON pmkNetId = fnkTeacherNetId WHERE fldFirstName = 'Robert Raymond' AND fldLastName = 'Snapp' ORDER BY fldStart";
             break;
         case 3:
             $query = "SELECT DISTINCT fldCourseName, fldDays, fldStart, fldStop";
-            $query .= " FROM tblCourses, tblSections, tblTeachers";
+            $query .= " FROM tblCourses";
+            $query .= " JOIN tblSections ON fnkCourseId = pmkCourseId";
+            $query .= " JOIN tblTeachers ON pmkNetId = fnkTeacherNetId";
             $query .= " WHERE fldFirstName = ? AND fldLastName = ?";
-            $query .= " AND tblTeachers.pmkNetId = tblSections.fnkTeacherNetId";
-            $query .= " AND tblCourses.pmkCourseId = tblSections.fnkCourseId";
             $query .= " ORDER BY fldStart";
             $data = array('Jackie Lynn', 'Horton');
-            $val = array(1, 4, 0, 0);
-            $queryText = "SELECT DISTINCT fldCourseName, fldDays, fldStart, fldStop FROM tblCourses, tblSections, tblTeachers WHERE fldFirstName = 'Jackie Lynn' AND fldLastName = 'Horton' AND tblTeachers.pmkNetId = tblSections.fnkTeacherNetId AND tblCourses.pmkCourseId = tblSections.fnkCourseId ORDER BY fldStart";
+            $val = array(1, 2, 0, 0);
+            $queryText = "SELECT DISTINCT fldCourseName, fldDays, fldStart, fldStop FROM tblCourses JOIN tblSections ON fnkCourseId = pmkCourseId JOIN tblTeachers ON pmkNetId = fnkTeacherNetId WHERE fldFirstName = 'Jackie Lynn' AND fldLastName = 'Horton' ORDER BY fldStart";
             break;
         case 4:
             $query = "SELECT fnkSectionId, fldFirstName, fldLastName";
-            $query .= " FROM tblStudents, tblEnrolls, tblCourses";
+            $query .= " FROM tblEnrolls";
+            $query .= " JOIN tblStudents ON fnkStudentId = pmkStudentId";
+            $query .= " JOIN tblCourses ON pmkCourseId = fnkCourseId";
             $query .= " WHERE fldDepartment = ? AND fldCourseNumber = ?";
-            $query .= " AND tblCourses.pmkCourseId = tblEnrolls.fnkCourseId";
-            $query .= " AND tblEnrolls.fnkStudentId = tblStudents.pmkStudentId";
             $query .= " ORDER BY fnkSectionId, fldLastName, fldFirstName";
             $data = array('CS', 148);
-            $val = array(1, 4, 0, 0);
-            $queryText = "SELECT fnkSectionId, fldFirstName, fldLastName FROM tblStudents, tblEnrolls, tblCourses WHERE fldDepartment = 'CS' AND fldCourseNumber = 148 AND tblCourses.pmkCourseId = tblEnrolls.fnkCourseId AND tblEnrolls.fnkStudentId = tblStudents.pmkStudentId ORDER BY fnkSectionId, fldLastName, fldFirstName";
+            $val = array(1, 2, 0, 0);
+            $queryText = "SELECT fnkSectionId, fldFirstName, fldLastName FROM tblEnrolls JOIN tblStudents ON fnkStudentId = pmkStudentId JOIN tblCourses ON pmkCourseId = fnkCourseId WHERE fldDepartment = 'CS' AND fldCourseNumber = 148 ORDER BY fnkSectionId, fldLastName, fldFirstName";
             break;
         default:
     }
