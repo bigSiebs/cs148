@@ -54,14 +54,26 @@ if ($queryNumber != "") {
             $val = array(1, 2, 0, 0);
             $queryText = "SELECT fnkSectionId, fldFirstName, fldLastName FROM tblEnrolls JOIN tblStudents ON fnkStudentId = pmkStudentId JOIN tblCourses ON pmkCourseId = fnkCourseId WHERE fldDepartment = 'CS' AND fldCourseNumber = 148 ORDER BY fnkSectionId, fldLastName, fldFirstName";
             break;
+        // Not working properly--need to filter out lab students
         case 5:
-            $query = "SELECT DISTINCT fldFirstName, fldLastName, SUM(fldNumStudents) AS total";
+            $query = "SELECT DISTINCT fldFirstName, fldLastName, COUNT(fnkStudentId) AS total";
             $query .= " FROM tblTeachers";
             $query .= " JOIN tblSections ON fnkTeacherNetId = pmkNetId";
+            $query .= " JOIN tblEnrolls ON tblSections.fnkCourseId = tblEnrolls.fnkCourseId AND fldCRN = fnkSectionId";
             $query .= " GROUP BY fldFirstName, fldLastName";
             $query .= " ORDER BY total DESC";
             $data = array("");
-            $val = array(0, 1, 0, 0,);
+            $val = array(0, 2, 0, 0,);
+            $queryText;
+            break;
+        case 6:
+            $query = "SELECT fldFirstName, fldPhone, fldSalary";
+            $query .= " FROM tblTeachers";
+            $query .= " WHERE fldSalary <";
+            $query .= " (SELECT AVG(fldSalary) FROM tblTeachers)";
+            $query .= " ORDER BY fldSalary DESC";
+            $data = array("");
+            $val = array(1, 1, 0, 1);
         default:
     }
     
