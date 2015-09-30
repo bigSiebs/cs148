@@ -56,15 +56,16 @@ if ($queryNumber != "") {
             break;
         // Not working properly--need to filter out lab students
         case 5:
-            $query = "SELECT DISTINCT fldFirstName, fldLastName, COUNT(fnkStudentId) AS total";
+            $query = "SELECT fldFirstName, fldLastName, COUNT(fnkStudentId) AS total";
             $query .= " FROM tblTeachers";
             $query .= " JOIN tblSections ON fnkTeacherNetId = pmkNetId";
-            $query .= " JOIN tblEnrolls ON tblSections.fnkCourseId = tblEnrolls.fnkCourseId AND fldCRN = fnkSectionId";
+            $query .= " JOIN tblEnrolls ON tblSections.fnkCourseId = tblEnrolls.fnkCourseId AND";
+            $query .= " fldCRN = fnkSectionId";
             $query .= " GROUP BY fldFirstName, fldLastName";
             $query .= " ORDER BY total DESC";
             $data = array("");
             $val = array(0, 2, 0, 0,);
-            $queryText;
+            $queryText = "SELECT fldFirstName, fldLastName, COUNT(fnkStudentId) AS total FROM tblTeachers JOIN tblSections ON fnkTeacherNetId = pmkNetId JOIN tblEnrolls ON tblSections.fnkCourseId = tblEnrolls.fnkCourseId AND fldCRN = fnkSectionId GROUP BY fldFirstName, fldLastName ORDER BY total DESC";
             break;
         case 6:
             $query = "SELECT fldFirstName, fldPhone, fldSalary";
@@ -74,6 +75,24 @@ if ($queryNumber != "") {
             $query .= " ORDER BY fldSalary DESC";
             $data = array("");
             $val = array(1, 1, 0, 1);
+            $queryText = "SELECT fldFirstName, fldPhone, fldSalary FROM tblTeachers WHERE fldSalary < (SELECT AVG(fldSalary) FROM tblTeachers) ORDER BY fldSalary DESC";
+            break;
+        // Needs query text
+        case 7:
+            $query = "SELECT fldFirstName, fldLastName, COUNT(fnkSectionId) AS NumberOfClasses, SUM(fldGrade) / COUNT(fnkSectionId) AS GPA";
+            $query .= " FROM tblStudents";
+            $query .= " JOIN tblEnrolls ON pmkStudentId = fnkStudentId";
+            $query .= " WHERE fldState = ?";
+            $query .= " GROUP BY fldFirstName, fldLastName";
+            $query .= " HAVING GPA > (SELECT SUM(fldGrade) / COUNT(fnkSectionId)";
+            $query .= " FROM tblEnrolls";
+            $query .= " JOIN tblStudents ON fnkStudentId = pmkStudentId";
+            $query .= " WHERE fldState = ?)";
+            $query .= " ORDER BY GPA DESC, fldLastName, fldFirstName";
+            $data = array('VT', 'VT');
+            $val = array(2, 1, 0, 1);
+            $queryText = "";
+            break;
         default:
     }
     
