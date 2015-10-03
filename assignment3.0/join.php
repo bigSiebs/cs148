@@ -66,7 +66,7 @@ if ($queryNumber != "") {
             $query .= " ORDER BY total DESC";
             $data = array("LAB");
             $val = array(1, 2, 0, 2);
-            $queryText = "SELECT fldFirstName, fldLastName, COUNT(fnkStudentId) AS total FROM tblTeachers JOIN tblSections ON fnkTeacherNetId = pmkNetId JOIN tblEnrolls ON tblSections.fnkCourseId = tblEnrolls.fnkCourseId AND fldCRN = fnkSectionId WHERE fldType <&lt;> 'LAB' GROUP BY fldFirstName, fldLastName ORDER BY total DESC";
+            $queryText = "SELECT fldFirstName, fldLastName, COUNT(fnkStudentId) AS total FROM tblTeachers JOIN tblSections ON fnkTeacherNetId = pmkNetId JOIN tblEnrolls ON tblSections.fnkCourseId = tblEnrolls.fnkCourseId AND fldCRN = fnkSectionId WHERE fldType &lt;> 'LAB' GROUP BY fldFirstName, fldLastName ORDER BY total DESC";
             break;
         case 6:
             $query = "SELECT fldFirstName, fldPhone, fldSalary";
