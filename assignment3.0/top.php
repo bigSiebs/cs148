@@ -8,7 +8,7 @@ require_once('../assignment1.0/lib/custom-functions.php');
         <title>JOIN SQL Queries | CS 148</title>
         <meta charset="utf-8">
         <meta name="author" content="Joe Siebert">
-        <meta name="description" content="This site displays sets of data obtained using various SQL JOIN queries.">
+        <meta name="description" content="This site displays data obtained using various SQL JOIN queries.">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 

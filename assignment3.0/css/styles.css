@@ -23,6 +23,10 @@ tr:nth-child(odd) {
     background-color:honeydew;
 }
 
+tr:hover { 
+    background-color: white;
+}
+
 /* -- Header -- */
 header {
     text-align:center;
