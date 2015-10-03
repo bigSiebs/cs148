@@ -28,6 +28,11 @@
             <li><a href="assignment3.0/join.php?query=8">q08</a></li>
             <li><a href="assignment3.0/css/styles.css">Stylesheet</a></li>
         </ul>
+        <h3>In-class Assignment, October 2</h3>
+        <ul>
+            <li><a href="misc/friday.php">friday.php</a></li>
+            <li><a href="misc/css/styles.css">Stylesheet</a></li>
+        </ul>
         <h3>Assignment 2.0</h3>
         <ul>
             <li><a href="assignment2.0/select.php">select.php</a></li>

@@ -1,0 +1,49 @@
+/* 
+    Created on : Sep 17, 2015, 2:15:36 PM
+    Author     : Joe Siebert
+*/
+/* -- General -- */
+
+table {
+    margin: 0 auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+tr {
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: cornsilk;
+}
+tr:nth-child(odd) {
+    background-color:honeydew;
+}
+
+tr:hover { 
+    background-color: white;
+}
+
+/* -- Header -- */
+header {
+    text-align:center;
+}
+
+/* -- Nav -- */
+nav ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ol li {
+    padding: 0.2em;
+}
+
+/* -- Footer -- */
+footer {
+    text-align: center;
+}

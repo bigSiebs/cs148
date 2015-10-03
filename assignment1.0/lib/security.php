@@ -25,6 +25,9 @@ function securityCheck($path_parts, $yourURL, $form = false) {
     
     // Assignment 3.0
     $whiteListPages[] = "join.php";
+    
+    // In-class assignment
+    $whiteListPages[] = "friday.php";
 
     //add all the folders to this array
     $whiteListFolders = array();
@@ -35,6 +38,9 @@ function securityCheck($path_parts, $yourURL, $form = false) {
     
     $whiteListFolders[] = "/cs148/assignment3.0";
     $whiteListFolders[] = "/cs148develop/assignment3.0";
+    
+    $whiteListFolders[] = "/cs148/misc";
+    $whiteListFolders[] = "/cs148develop/misc"; 
 
     // Check for valid page name
     if (!in_array($path_parts['basename'], $whiteListPages)) {
