@@ -66,7 +66,7 @@ if ($queryNumber != "") {
             $query .= " ORDER BY total DESC";
             $data = array("LAB");
             $val = array(1, 2, 0, 2);
-            $queryText = "SELECT fldFirstName, fldLastName, COUNT(fnkStudentId) AS total FROM tblTeachers JOIN tblSections ON fnkTeacherNetId = pmkNetId JOIN tblEnrolls ON tblSections.fnkCourseId = tblEnrolls.fnkCourseId AND fldCRN = fnkSectionId WHERE fldType <> 'LAB' GROUP BY fldFirstName, fldLastName ORDER BY total DESC";
+            $queryText = "SELECT fldFirstName, fldLastName, COUNT(fnkStudentId) AS total FROM tblTeachers JOIN tblSections ON fnkTeacherNetId = pmkNetId JOIN tblEnrolls ON tblSections.fnkCourseId = tblEnrolls.fnkCourseId AND fldCRN = fnkSectionId WHERE fldType <&lt;> 'LAB' GROUP BY fldFirstName, fldLastName ORDER BY total DESC";
             break;
         case 6:
             $query = "SELECT fldFirstName, fldPhone, fldSalary";
@@ -76,7 +76,7 @@ if ($queryNumber != "") {
             $query .= " ORDER BY fldSalary DESC";
             $data = array("");
             $val = array(1, 1, 0, 1);
-            $queryText = "SELECT fldFirstName, fldPhone, fldSalary FROM tblTeachers WHERE fldSalary < (SELECT AVG(fldSalary) FROM tblTeachers) ORDER BY fldSalary DESC";
+            $queryText = "SELECT fldFirstName, fldPhone, fldSalary FROM tblTeachers WHERE fldSalary &lt; (SELECT AVG(fldSalary) FROM tblTeachers) ORDER BY fldSalary DESC";
             break;
         case 7:
             $query = "SELECT fldFirstName, fldLastName, COUNT(fnkSectionId) AS NumberOfClasses, SUM(fldGrade) / COUNT(fnkSectionId) AS GPA";
@@ -104,7 +104,7 @@ if ($queryNumber != "") {
             $query .= " ORDER BY IBB";
             $data = array("LAB");
             $val = array(1, 2, 0, 2);
-            $queryText = "SELECT fldFirstName, fldLastName, COUNT(fnkStudentId) AS total, fldSalary, fldSalary / COUNT(fnkStudentId) AS IBB FROM tblTeachers JOIN tblSections ON fnkTeacherNetId = pmkNetId JOIN tblEnrolls ON tblSections.fnkCourseId = tblEnrolls.fnkCourseId AND fldCRN = fnkSectionId WHERE fldType <> 'LAB' GROUP BY fldFirstName, fldLastName ORDER BY IBB";
+            $queryText = "SELECT fldFirstName, fldLastName, COUNT(fnkStudentId) AS total, fldSalary, fldSalary / COUNT(fnkStudentId) AS IBB FROM tblTeachers JOIN tblSections ON fnkTeacherNetId = pmkNetId JOIN tblEnrolls ON tblSections.fnkCourseId = tblEnrolls.fnkCourseId AND fldCRN = fnkSectionId WHERE fldType &lt;> 'LAB' GROUP BY fldFirstName, fldLastName ORDER BY IBB";
             break;
         default:
             $query = "";
