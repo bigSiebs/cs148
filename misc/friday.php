@@ -2,20 +2,56 @@
 
 include "top.php";
 
+$startRecord = "";
+$numberRecords = 10;
+
+// Make sure to set query number as int for security
+if (isset($_GET['startRecord'])) {
+    $startRecord = (int) $_GET['startRecord'];
+} else {
+    $startRecord = 0;
+}
+    
 print "<article>";
 
+$queryTotal = "SELECT pmkStudentId, fldFirstName, fldLastName, fldStreetAddress, fldCity, fldState, fldZip, fldGender";
+$queryTotal .= " FROM tblStudents";
+$data = array("");
+$val = array(0, 0, 0, 0);
+
+// SELECT all records
+$total = $thisDatabaseReader->select($queryTotal, $data, $val[0], $val[1], $val[2], $val[3], false, false);
+
+print '<h2>SQL: ' . $queryTotal . '</h3>';
+print '<h3>Total Records: ' . count($total) . '</h2>';
+
+print '<h4>Displaying records ';
+print ($startRecord + 1) . ' - ' . ($startRecord + $numberRecords) . '</h4>';
+
+print '<ol>';
+print '<li';
+if ($startRecord - $numberRecords < 0) {
+    print ' class="unavailable"';
+}
+print '><a href=?startRecord=' . ($startRecord - $numberRecords) . '>';
+print 'Previous 10 Records</a></li>';
+print '<li';
+if ($startRecord + $numberRecords >= count($total)) {
+    print ' class="unavailable"';
+}
+print '><a href=?startRecord=' . ($startRecord + $numberRecords) . '>';
+print 'Next 10 Records</a></li>';
+print '</ol>';
+
+// SELECT according to $numberRecords and $startRecord
 $query = "SELECT pmkStudentId, fldFirstName, fldLastName, fldStreetAddress, fldCity, fldState, fldZip, fldGender";
 $query .= " FROM tblStudents";
-$query .= " LIMIT 10 OFFSET 999";
+$query .= " LIMIT " . $numberRecords . " OFFSET " . $startRecord;
 $data = array("");
 $val = array(0, 0, 0, 0);
 
 // Call select method
 $info = $thisDatabaseReader->select($query, $data, $val[0], $val[1], $val[2], $val[3], false, false);
-
-// Execute if valid number is in URL
-print '<h2>Total Records: ' . count($info) . '</h2>';
-print '<h3>SQL: ' . $query . '</h3>';
 
 // To troubleshoot returned array
 if ($debug) {
@@ -34,9 +70,9 @@ $headers = array_filter($fields, 'is_string'); // Picks up only str values
 // Print headings
 foreach ($headers as $head) {
     $camelCase = preg_split('/(?=[A-Z])/', substr($head, 3));
-    
+
     $heading = "";
-    
+
     foreach ($camelCase as $oneWord) {
         $heading .= $oneWord . " ";
     }

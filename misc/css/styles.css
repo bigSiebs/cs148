@@ -47,3 +47,8 @@ nav ol li {
 footer {
     text-align: center;
 }
+
+/* -- Classes -- */
+li.unavailable {
+    visibility: hidden;
+}
