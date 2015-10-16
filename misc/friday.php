@@ -22,11 +22,11 @@ $val = array(0, 0, 0, 0);
 // SELECT all records
 $total = $thisDatabaseReader->select($queryTotal, $data, $val[0], $val[1], $val[2], $val[3], false, false);
 
-print '<h2>SQL: ' . $queryTotal . '</h3>';
-print '<h3>Total Records: ' . count($total) . '</h2>';
+print '<h2>SQL: ' . $queryTotal . '</h2>';
 
-print '<h4>Displaying records ';
-print ($startRecord + 1) . ' - ' . ($startRecord + $numberRecords) . '</h4>';
+print '<h3>Displaying records ';
+print ($startRecord + 1) . ' - ' . ($startRecord + $numberRecords);
+print ' of ' . count($total) . '</h3>';
 
 print '<ol>';
 print '<li';

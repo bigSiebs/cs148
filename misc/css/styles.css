@@ -4,6 +4,20 @@
 */
 /* -- General -- */
 
+h3 {
+    text-align: center;
+}
+
+li {
+    display: inline;
+    padding: 1em;
+}
+
+ol {
+    list-style-type: none;
+    text-align: center;
+}
+
 table {
     margin: 0 auto;
 }
@@ -24,7 +38,7 @@ tr:nth-child(odd) {
 }
 
 tr:hover { 
-    background-color: white;
+    background-color: pink;
 }
 
 /* -- Header -- */
@@ -33,15 +47,6 @@ header {
 }
 
 /* -- Nav -- */
-nav ol {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ol li {
-    padding: 0.2em;
-}
 
 /* -- Footer -- */
 footer {
