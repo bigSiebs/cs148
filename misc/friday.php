@@ -33,13 +33,13 @@ print '<li';
 if ($startRecord - $numberRecords < 0) {
     print ' class="unavailable"';
 }
-print '><a href=?startRecord=' . ($startRecord - $numberRecords) . '>';
+print '><a href="?startRecord=' . ($startRecord - $numberRecords) . '">';
 print 'Previous 10 Records</a></li>';
 print '<li';
 if ($startRecord + $numberRecords >= count($total)) {
     print ' class="unavailable"';
 }
-print '><a href=?startRecord=' . ($startRecord + $numberRecords) . '>';
+print '><a href="?startRecord=' . ($startRecord + $numberRecords) . '">';
 print 'Next 10 Records</a></li>';
 print '</ol>';
 
