@@ -15,6 +15,11 @@
         <ul>
             <li><a href="tryme.php">tryme.php</a></li>
         </ul>
+        <h3>Advising</h3>
+        <ul>
+            <li><a href="advising/tables.php">tables.php</a></li>
+            <li><a href="advising/styles/stylesheet.css">Stylesheet</a></li>
+        </ul>
         <h3>Assignment 3.0</h3>
         <ul>
             <li><a href="assignment3.0/join.php">join.php</a></li>
