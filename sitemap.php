@@ -26,7 +26,7 @@
         <ul>
             <li><a href="advising/tables.php">tables.php</a></li>
             <li><a href="advising/four-year-plan.php">four-year-plan.php</a></li>
-            <li><a href="advising/four-year-plan.php">form.php</a></li>
+            <li><a href="advising/form.php">form.php</a></li>
             <li><a href="advising/design/er-diagram.pdf">ER diagram</a></li>
             <li><a href="advising/design/schema.pdf">Schema</a></li>
             <li><a href="advising/css/styles.css">Stylesheet</a></li>
