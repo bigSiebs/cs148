@@ -18,8 +18,24 @@
         
         <h3>Final Project</h3>
         <ul>
-            <li><a href="assignment10/top-10.php">top-10.php</a></li>
-            <li><a href="assignment10/styles.css">Stylesheet</a></li>
+            <li>Public Pages</li>
+            <li><a href="assignment10/index.php">index.php</a></li>
+            <li><a href="assignment10/list.php">list.php</a></li>
+            <li><a href="assignment10/form.php">form.php</a></li>
+            <li><a href="assignment10/submit.php">submit.php</a></li>
+            <li><a href="assignment10/about.php">about.php</a></li>
+            <br>
+            <li>Admin-only Pages</li>
+            <li><a href="assignment10/admin/approve.php">approve.php</a></li>
+            <li><a href="assignment10/admin/remove.php">remove.php</a></li>
+            <li><a href="assignment10/admin/images.php">images.php</a></li>
+            <br>
+            <li>Stylesheets</li>
+            <li><a href="assignment10/css/styles.css">styles.css</a></li>
+            <li><a href="assignment10/css/foundation.css">foundation.css</a></li>
+            <br>
+            <li>Documentation</li>
+            <li><a href="assignment10/docs/specs.pdf">Project Specs</a></li>          
         </ul>
         
         <h3>Advising</h3>
